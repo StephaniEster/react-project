@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+function App(props) {
+
+const modificarNome = event => {
+
+}
+
+  const criaComboBox = () => {
+    const opcoes = ["Fulano", "Cicrano"];
+    const comboBoxOpcoes = opcoes.map((opcao) => <option>{opcao}</option>);
+    return(
+      <select>
+      {comboBoxOpcoes}
+      </select>
+    ) 
+  };
+
+  const MeuComboBox = () => criaComboBox();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <input
+        type="text"
+        value={props.name}
+        onChange={modificarNome}
+      />
+      <h1>Hello {props.name} sua idade é {props.idade}</h1>
+      <MeuComboBox />
+    </>
   );
 }
 
